@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Arbab Hussain",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.15.8",
     "autoprefixer": "^9.7.6",
@@ -26,9 +26,7 @@
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "sass": "^1.35.2"
-  },
-  "dependencies": {
+    "sass": "^1.35.2",
     "gulp-webp": "^4.0.1"
   }
 }
