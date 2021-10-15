@@ -1,0 +1,8 @@
+@use "globals";
+@use "components";
+
+header,
+footer {
+  padding: 3rem 0;
+  border: 1px solid #fff;
+}
