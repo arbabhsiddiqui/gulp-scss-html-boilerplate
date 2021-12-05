@@ -32,10 +32,9 @@ const browsersync = require("browser-sync").create();
 //! define paths for source and destination
 const SOURCE = "src";
 const DIST = "dist";
-const root = ".";
 
 const SRC_JS_PATH = `${SOURCE}/js/**/**/*.js`;
-const SRC_HTML_PATH = `*.html`;
+const SRC_HTML_PATH = `${SOURCE}/*.html`;
 const DIST_JS_PATH = `${DIST}/js`;
 const SRC_CSS_PATH = `${SOURCE}/scss/**/*.scss`;
 const DIST_CSS_PATH = `${DIST}/css`;
@@ -44,20 +43,20 @@ const DIST_IMAGE_PATH = `${DIST}/images`;
 
 //! combine html
 function combineHtml() {
-  return src("./src/*.html")
+  return src(SRC_HTML_PATH)
     .pipe(
       fileInclude({
         prefix: "@@",
-        basepath: "./src/templates",
+        basepath: "@file",
       })
     )
-    .pipe(gulp.dest(root));
+    .pipe(gulp.dest(DIST));
 }
 
 //* copying html files from root to dist root
-function copyHtml() {
-  return src(SRC_HTML_PATH).pipe(gulp.dest(DIST));
-}
+// function copyHtml() {
+//   return src(SRC_HTML_PATH).pipe(gulp.dest(DIST));
+// }
 
 //* compress images and copy them into dist/images folder
 function imgCompressionTask() {
@@ -97,7 +96,7 @@ function cssTask() {
 function browserSyncServe(cb) {
   browsersync.init({
     server: {
-      baseDir: root,
+      baseDir: "./dist/",
     },
     notify: {
       styles: {
@@ -140,13 +139,11 @@ exports.cssTask = cssTask;
 exports.jsTask = jsTask;
 exports.imgCompressionTask = imgCompressionTask;
 exports.convertImagesIntoWebPeTask = convertImagesIntoWebPeTask;
-exports.copyHtml = copyHtml;
 
 //* setup default task generate dist and wait for changes
 exports.default = series(
   parallel(
     combineHtml,
-    copyHtml,
     imgCompressionTask,
     convertImagesIntoWebPeTask,
     jsTask,
