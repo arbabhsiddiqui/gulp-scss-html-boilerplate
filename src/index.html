@@ -1,16 +1,21 @@
-<!-- include header file -->
-@@include('templates/Header.html')
-
-<main>
-  <section class="hero01">
-    <h1>This Is A Great Website!</h1>
-    <h2>using webp images</h2>
-    <picture>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gulp Template</title>
+    <!-- include header file -->
+    @@include('templates/Header.html')
+  </head>
+  <body>
+    <!-- include navbar file -->
+    @@include('templates/Navbar.html')
+    <!-- <picture>
       <source type="images/webp" srcset="./images/img1.webp" alt="image" />
-      <img src="./images/img1.png" alt="" />
-    </picture>
-  </section>
-</main>
-
-<!-- include footer file -->
-@@include('templates/Footer.html')
+    </picture> -->
+    <img src="./images/img1.webp" alt="" />
+    <!-- include footer file -->
+    @@include('templates/Footer.html')
+  </body>
+</html>

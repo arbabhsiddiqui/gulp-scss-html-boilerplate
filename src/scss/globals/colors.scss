@@ -1,4 +1,34 @@
 :root {
-	--white: hsl(0, 0%, 100%);
-	--black: hsl(0, 0%, 0%);
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(0, 0%, 0%);
+  --primary: #27debf;
+  --primary-dark: #000;
+  --primary-light: #000;
+  --base: #000;
+  --base-dark: #000;
+  --base-light: #000;
+  --secondary: #1da68f;
+  --secondary-dark: #000;
+  --secondary-light: #000;
+  --accent: #000;
+  --accent-dark: #000;
+  --accent-light: #000;
+  --text-dark: #000;
+  --text-light: #fff;
+  --grey: #000;
+  --gradient1: linear-gradient(90deg, var(--primary), var(--secondary));
+  --gradient2: linear-gradient(90deg, var(--primary), var(--base));
+}
+
+@function set-text-color($color) {
+  @if (lightness($color) >60) {
+    @return var(--text-dark);
+  } @else {
+    @return var(--text-light);
+  }
+}
+
+@mixin set-background($color) {
+  background-color: $color;
+  color: set-text-color($color);
 }

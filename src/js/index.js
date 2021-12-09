@@ -1,5 +1,2 @@
-import { pops, test } from './popup.js';
+import { pops } from "./popup.js";
 pops();
-test();
-
-console.log('index');

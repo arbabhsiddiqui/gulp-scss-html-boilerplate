@@ -53,19 +53,16 @@ function combineHtml() {
     .pipe(gulp.dest(DIST));
 }
 
-//* copying html files from root to dist root
-// function copyHtml() {
-//   return src(SRC_HTML_PATH).pipe(gulp.dest(DIST));
-// }
-
 //* compress images and copy them into dist/images folder
 function imgCompressionTask() {
-  return src(SRC_IMAGE_PATH).pipe(imagemin()).pipe(gulp.dest(DIST_IMAGE_PATH));
+  return src(SRC_IMAGE_PATH)
+    .pipe(imagemin())
+    .pipe(gulp.dest(`${SOURCE}/compressImage`));
 }
 
 //* convert Them into webp images !!Folder Location dist/images
 function convertImagesIntoWebPeTask() {
-  return src("dist/images/**/*.{jpg,png}")
+  return src(`${SOURCE}/compressImage/**/*`)
     .pipe(imageWebp())
     .pipe(gulp.dest(DIST_IMAGE_PATH));
 }
