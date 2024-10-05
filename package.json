@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "gulp",
+    "build": "gulp build",
+    "update-images": "gulp compressImagesDev && gulp compressImagesBuild",
+    "update-images-for-dev": "gulp compressImagesDev",
+    "update-images-for-build": "gulp compressImagesBuild"
   },
   "author": "Arbab Hussain",
   "license": "MIT",
